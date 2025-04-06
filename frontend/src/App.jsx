@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 import axios from "axios";
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL + "/api/v1/tasks/";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -26,7 +26,7 @@ function App() {
   const getAllTasks = async () => {
     try {
       const { data } = await axios(apiUrl);
-      console.log(data.tasks);
+      console.log(data);
 
       setTasks(data.tasks);
     } catch (error) {
